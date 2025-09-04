@@ -1,10 +1,7 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useRef, useState } from 'react';
+import { motion, type Variants, type Transition } from 'framer-motion';
 import { useInView } from 'framer-motion';
-import { useRef } from 'react';
 import { ExternalLink, Play } from 'lucide-react';
-
-import { useState } from 'react';
 import PortfolioModal from './PortfolioModal';
 
 interface PortfolioItem {
@@ -36,21 +33,9 @@ const Portfolio: React.FC = () => {
       description: 'Complete branding package for tech startup',
       category: 'design',
       samples: [
-        {
-          type: 'image',
-          url: 'https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg',
-          caption: 'Logo design and brand guidelines'
-        },
-        {
-          type: 'image',
-          url: 'https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg',
-          caption: 'Business card and stationery design'
-        },
-        {
-          type: 'image',
-          url: 'https://images.pexels.com/photos/267350/pexels-photo-267350.jpeg',
-          caption: 'Brand application mockups'
-        }
+        { type: 'image', url: 'https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg', caption: 'Logo design and brand guidelines' },
+        { type: 'image', url: 'https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg', caption: 'Business card and stationery design' },
+        { type: 'image', url: 'https://images.pexels.com/photos/267350/pexels-photo-267350.jpeg', caption: 'Brand application mockups' }
       ]
     },
     {
@@ -61,21 +46,9 @@ const Portfolio: React.FC = () => {
       description: 'Cinematic product showcase video',
       category: 'video',
       samples: [
-        {
-          type: 'video',
-          url: 'https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_1mb.mp4',
-          caption: 'Main product commercial - 30 seconds'
-        },
-        {
-          type: 'image',
-          url: 'https://images.pexels.com/photos/3945313/pexels-photo-3945313.jpeg',
-          caption: 'Behind the scenes storyboard'
-        },
-        {
-          type: 'video',
-          url: 'https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_2mb.mp4',
-          caption: 'Extended director\'s cut version'
-        }
+        { type: 'video', url: 'https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_1mb.mp4', caption: 'Main product commercial - 30 seconds' },
+        { type: 'image', url: 'https://images.pexels.com/photos/3945313/pexels-photo-3945313.jpeg', caption: 'Behind the scenes storyboard' },
+        { type: 'video', url: 'https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_2mb.mp4', caption: 'Extended director\'s cut version' }
       ]
     },
     {
@@ -86,21 +59,9 @@ const Portfolio: React.FC = () => {
       description: 'Modern editorial design for fashion magazine',
       category: 'design',
       samples: [
-        {
-          type: 'image',
-          url: 'https://images.pexels.com/photos/518543/pexels-photo-518543.jpeg',
-          caption: 'Cover design and typography'
-        },
-        {
-          type: 'image',
-          url: 'https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg',
-          caption: 'Interior spread layouts'
-        },
-        {
-          type: 'image',
-          url: 'https://images.pexels.com/photos/267350/pexels-photo-267350.jpeg',
-          caption: 'Digital version mockups'
-        }
+        { type: 'image', url: 'https://images.pexels.com/photos/518543/pexels-photo-518543.jpeg', caption: 'Cover design and typography' },
+        { type: 'image', url: 'https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg', caption: 'Interior spread layouts' },
+        { type: 'image', url: 'https://images.pexels.com/photos/267350/pexels-photo-267350.jpeg', caption: 'Digital version mockups' }
       ]
     },
     {
@@ -111,21 +72,9 @@ const Portfolio: React.FC = () => {
       description: 'Dynamic motion graphics compilation',
       category: 'video',
       samples: [
-        {
-          type: 'video',
-          url: 'https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_1mb.mp4',
-          caption: 'Motion graphics showreel - 2 minutes'
-        },
-        {
-          type: 'image',
-          url: 'https://images.pexels.com/photos/7991579/pexels-photo-7991579.jpeg',
-          caption: 'Style frames and concept art'
-        },
-        {
-          type: 'video',
-          url: 'https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_2mb.mp4',
-          caption: 'Individual motion graphics elements'
-        }
+        { type: 'video', url: 'https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_1mb.mp4', caption: 'Motion graphics showreel - 2 minutes' },
+        { type: 'image', url: 'https://images.pexels.com/photos/7991579/pexels-photo-7991579.jpeg', caption: 'Style frames and concept art' },
+        { type: 'video', url: 'https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_2mb.mp4', caption: 'Individual motion graphics elements' }
       ]
     },
     {
@@ -136,21 +85,9 @@ const Portfolio: React.FC = () => {
       description: 'Concert poster design series',
       category: 'design',
       samples: [
-        {
-          type: 'image',
-          url: 'https://images.pexels.com/photos/1619654/pexels-photo-1619654.jpeg',
-          caption: 'Main concert poster design'
-        },
-        {
-          type: 'image',
-          url: 'https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg',
-          caption: 'Alternative poster variations'
-        },
-        {
-          type: 'image',
-          url: 'https://images.pexels.com/photos/267350/pexels-photo-267350.jpeg',
-          caption: 'Social media adaptations'
-        }
+        { type: 'image', url: 'https://images.pexels.com/photos/1619654/pexels-photo-1619654.jpeg', caption: 'Main concert poster design' },
+        { type: 'image', url: 'https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg', caption: 'Alternative poster variations' },
+        { type: 'image', url: 'https://images.pexels.com/photos/267350/pexels-photo-267350.jpeg', caption: 'Social media adaptations' }
       ]
     },
     {
@@ -161,21 +98,9 @@ const Portfolio: React.FC = () => {
       description: 'Feature-length documentary editing',
       category: 'video',
       samples: [
-        {
-          type: 'video',
-          url: 'https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_2mb.mp4',
-          caption: 'Documentary trailer - 90 seconds'
-        },
-        {
-          type: 'image',
-          url: 'https://images.pexels.com/photos/7991608/pexels-photo-7991608.jpeg',
-          caption: 'Editing timeline and workflow'
-        },
-        {
-          type: 'video',
-          url: 'https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_1mb.mp4',
-          caption: 'Selected scenes compilation'
-        }
+        { type: 'video', url: 'https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_2mb.mp4', caption: 'Documentary trailer - 90 seconds' },
+        { type: 'image', url: 'https://images.pexels.com/photos/7991608/pexels-photo-7991608.jpeg', caption: 'Editing timeline and workflow' },
+        { type: 'video', url: 'https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_1mb.mp4', caption: 'Selected scenes compilation' }
       ]
     }
   ];
@@ -190,22 +115,24 @@ const Portfolio: React.FC = () => {
     setSelectedItem(null);
   };
 
-  const containerVariants = {
+  // ✅ Use Variants for type safety
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: {
-        staggerChildren: 0.2
-      }
+      transition: { staggerChildren: 0.2 }
     }
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 50 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: "easeInOut" }
+      transition: {
+        duration: 0.6,
+        ease: "easeInOut" as Transition["ease"] // ✅ type-safe fix
+      }
     }
   };
 
@@ -247,12 +174,10 @@ const Portfolio: React.FC = () => {
                   alt={item.title}
                   className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
                 />
-                
+
                 {/* Overlay */}
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                />
-                
+                <motion.div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
                 {/* Play Icon for Videos */}
                 {item.category === 'video' && (
                   <motion.div
@@ -268,24 +193,24 @@ const Portfolio: React.FC = () => {
 
               <div className="p-6">
                 <div className="flex items-center justify-between mb-3">
-                  <span className={`text-xs font-bold px-3 py-1 rounded-full ${
-                    item.category === 'video' 
-                      ? 'bg-cyan-500/20 text-cyan-400' 
-                      : 'bg-pink-500/20 text-pink-400'
-                  }`}>
+                  <span
+                    className={`text-xs font-bold px-3 py-1 rounded-full ${
+                      item.category === 'video'
+                        ? 'bg-cyan-500/20 text-cyan-400'
+                        : 'bg-pink-500/20 text-pink-400'
+                    }`}
+                  >
                     {item.type}
                   </span>
                   <div className="text-gray-400 group-hover:text-white transition-colors duration-200">
                     <ExternalLink className="w-5 h-5" />
                   </div>
                 </div>
-                
+
                 <h3 className="text-xl font-bold text-white mb-2 group-hover:text-pink-400 transition-colors duration-300">
                   {item.title}
                 </h3>
-                <p className="text-gray-400 text-sm">
-                  {item.description}
-                </p>
+                <p className="text-gray-400 text-sm">{item.description}</p>
                 <p className="text-gray-500 text-xs mt-2">
                   {item.samples.length} sample{item.samples.length !== 1 ? 's' : ''}
                 </p>
@@ -294,11 +219,7 @@ const Portfolio: React.FC = () => {
           ))}
         </motion.div>
 
-        <PortfolioModal
-          item={selectedItem}
-          isOpen={isModalOpen}
-          onClose={closeModal}
-        />
+        <PortfolioModal item={selectedItem} isOpen={isModalOpen} onClose={closeModal} />
       </div>
     </section>
   );
