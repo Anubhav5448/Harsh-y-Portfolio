@@ -67,7 +67,11 @@ const Skills: React.FC = () => {
           className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
           {skills.map((skill, index) => (
-            <motion.div key={skill.name} variants={itemVariants} className="group relative">
+            <motion.div
+              key={skill.name}
+              variants={itemVariants}
+              className="group relative"
+            >
               <motion.div
                 className="bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-6 hover:border-pink-500/50 transition-all duration-300"
                 whileHover={{ y: -5, scale: 1.02 }}
@@ -115,7 +119,9 @@ const Skills: React.FC = () => {
                           : "from-cyan-500 to-blue-600"
                       }`}
                       initial={{ width: 0 }}
-                      animate={isInView ? { width: `${skill.level}%` } : { width: 0 }}
+                      animate={
+                        isInView ? { width: `${skill.level}%` } : { width: 0 }
+                      }
                       transition={{
                         duration: 1.5,
                         delay: index * 0.1,
@@ -146,7 +152,8 @@ const Skills: React.FC = () => {
           className="text-center mt-16"
         >
           <p className="text-gray-400 text-lg max-w-3xl mx-auto">
-            Constantly evolving and learning new techniques to stay ahead of industry trends and deliver cutting-edge creative solutions.
+            Constantly evolving and learning new techniques to stay ahead of
+            industry trends and deliver cutting-edge creative solutions.
           </p>
         </motion.div>
       </div>
